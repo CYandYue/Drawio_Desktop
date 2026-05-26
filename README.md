@@ -7,6 +7,14 @@ Download built binaries from the [releases section](https://github.com/jgraph/dr
 
 **Can I use this app for free?** Yes, under the apache 2.0 license. If you don't change the code and accept it is provided "as-is", you can use it for any purpose.
 
+Fork notes
+----------
+
+This repository is a personal fork of draw.io Desktop with a few local workflow and import-limit changes:
+
+- The runtime image import limits have been raised for large screenshots and high-resolution images. The change follows the need discussed in [jgraph/drawio#1887](https://github.com/jgraph/drawio/issues/1887): this fork uses a maximum image dimension of `10000` px and a maximum image payload of `30000000` bytes.
+- A macOS launcher app, `Drawio Dev.app`, is included in the repository. It uses the draw.io icon and opens this modified source tree directly, so the local build can be launched from Finder or the Dock instead of manually running `npm start`.
+
 Windows installation
 --------------------
 
@@ -45,6 +53,8 @@ To run this:
 1. `npm install` (in the root directory of this repo)
 2. [internal use only] export DRAWIO_ENV=dev if you want to develop/debug in dev mode.
 3. `npm start` _in the root directory of this repo_ runs the app. For debugging, use `npm start --enable-logging`.
+
+On macOS, `Drawio Dev.app` can also be opened directly to run the same local source tree.
 
 Note: If a symlink is used to refer to drawio repo (instead of the submodule), then symlink the `node_modules` directory inside `drawio/src/main/webapp` also.
 
